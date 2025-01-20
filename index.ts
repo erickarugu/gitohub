@@ -6,11 +6,19 @@ import swaggerDocument from "./swagger/swagger.json";
 import env from "./env";
 import { GitHubService } from "./services/github.service";
 import { IORedisService } from "./services/ioredis.service";
+import rateLimit from "express-rate-limit";
 
 const app: Express = express();
 const gitHubService = new GitHubService();
 const ioRedisService = new IORedisService();
 const PORT = env.PORT;
+
+const limiter = rateLimit({
+  windowMs: 60 * 1000, // 1 minute
+  max: 10, // Limit each IP to 100 requests per windowMs
+});
+
+app.use(limiter);
 
 app.use(
   cors({
