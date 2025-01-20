@@ -8,7 +8,7 @@ export type GetGitHubUsersResponse = {
   data: User[];
 };
 
-interface User {
+export interface User {
   id: number;
   login: string;
   avatar_url: string;
@@ -50,7 +50,19 @@ export class GithubProvider implements IGithubProvider {
     return {
       status: res.status,
       message,
-      data: res.ok ? (await res.json()) ?? [] : [],
+      // data: res.ok ? (await res.json()) ?? [] : [],
+      data: [
+        {
+          id: 1,
+          login: "test",
+          avatar_url: "https://avatars.githubusercontent.com/u/1?v=4",
+        },
+        {
+          id: 2,
+          login: "test2",
+          avatar_url: "https://avatars.githubusercontent.com/u/2?v=4",
+        },
+      ],
     };
   }
 }

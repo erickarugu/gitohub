@@ -15,15 +15,21 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "ioredis": "^5.4.2",
     "npm-run-all": "^4.1.5",
+    "redis": "^4.7.0",
     "swagger-ui-express": "^5.0.1",
     "zod": "^3.24.1"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "@types/swagger-ui-express": "^4.1.7",
+    "eslint": "^9.18.0",
+    "eslint-plugin-perfectionist": "^4.6.0",
     "nodemon": "^3.1.9"
   }
 }
