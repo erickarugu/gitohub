@@ -1,6 +1,9 @@
 ## Gitohub
 Gitohub is a simple API that allows you to get GitHub users.
 
+![image](https://github.com/user-attachments/assets/ca513f3d-26b0-4f93-8f83-79c333253a99)
+
+
 ## Installation
 ```bash
 pnpm install
@@ -20,6 +23,8 @@ pnpm run test
 ```bash
 pnpm run coverage
 ```
+![image](https://github.com/user-attachments/assets/be374bea-85fd-4f26-893d-c9079e04e2f4)
+
 
 ## Packages used 
 - [express](https://expressjs.com/) - web framework
