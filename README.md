@@ -1,7 +1,10 @@
 ## Gitohub
 Gitohub is a simple API that allows you to get a list of GitHub users.
 
-![image](https://github.com/user-attachments/assets/ca513f3d-26b0-4f93-8f83-79c333253a99)
+![image](https://github.com/user-attachments/assets/7c17c0fc-68de-418a-8ab7-1704c590b659)
+
+![image](https://github.com/user-attachments/assets/4e0a0ff2-10d5-4820-bc63-f469c423e032)
+
 
 
 ## Installation
@@ -35,8 +38,7 @@ pnpm run test
 ```bash
 pnpm run coverage
 ```
-![image](https://github.com/user-attachments/assets/be374bea-85fd-4f26-893d-c9079e04e2f4)
-
+![image](https://github.com/user-attachments/assets/75a3a903-6a46-413d-92da-40f0201cb22a)
 
 ## Docker Compose
 You can also use Docker Compose to run the app and redis server
