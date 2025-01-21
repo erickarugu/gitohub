@@ -2,16 +2,16 @@ export type GetGitHubUsersOptions = {
   limit: number;
 };
 
-export type GetGitHubUsersResponse = {
+export type GetUsersResponse = {
   status: number;
   message: string;
   data: User[];
 };
 
 export interface User {
-  id: number;
-  login: string;
-  avatar_url: string;
+  username: string;
+  identifier: number;
+  profile_image: string;
 }
 
 interface IGithubProvider {
@@ -34,7 +34,7 @@ export class GithubProvider implements IGithubProvider {
 
   async getGitHubUsers(
     options: GetGitHubUsersOptions
-  ): Promise<GetGitHubUsersResponse> {
+  ): Promise<GetUsersResponse> {
     const { limit } = options;
 
     const res = await fetch(`https://api.github.com/users?per_page=${limit}`, {
@@ -50,19 +50,15 @@ export class GithubProvider implements IGithubProvider {
     return {
       status: res.status,
       message,
-      // data: res.ok ? (await res.json()) ?? [] : [],
-      data: [
-        {
-          id: 1,
-          login: "test",
-          avatar_url: "https://avatars.githubusercontent.com/u/1?v=4",
-        },
-        {
-          id: 2,
-          login: "test2",
-          avatar_url: "https://avatars.githubusercontent.com/u/2?v=4",
-        },
-      ],
+      data: res.ok ? this.transformResponse(await res.json()) : [],
     };
+  }
+
+  transformResponse(response: any): User[] {
+    return response.map((user: any) => ({
+      username: user.login,
+      identifier: user.id,
+      profile_image: user.avatar_url,
+    }));
   }
 }

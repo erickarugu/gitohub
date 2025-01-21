@@ -15,6 +15,12 @@ cp .env.example .env
 ```
 Replace the values in the .env file with your own values.
 
+#### GitHub Personal Access Token
+You need to create a GitHub personal access token with the following permissions:
+- `user`
+
+Check out this [link](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token) to learn how to create a GitHub personal access token.
+
 ## Running the app
 ```bash
 pnpm run dev

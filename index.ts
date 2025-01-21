@@ -35,18 +35,11 @@ app.use(async (req, res, next) => {
 app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.get("/api/users", async (req, res) => {
-  const users = await ioRedisService.getOrSetCache<User[]>(
-    "users",
-    async () => {
-      let data = await gitHubService.getGitHubUsers({
-        limit: 30,
-      });
+  const response = await gitHubService.getGitHubUsers({
+    limit: 30,
+  });
 
-      return data.data;
-    }
-  );
-
-  res.json(users);
+  res.status(response.status).json(response.data);
 });
 
 app.listen(PORT, () => {

@@ -67,14 +67,9 @@ describe("GithubProvider", () => {
         message: "Success",
         data: [
           {
-            id: 1,
-            login: "test",
-            avatar_url: "https://avatars.githubusercontent.com/u/1?v=4",
-          },
-          {
-            id: 2,
-            login: "test2",
-            avatar_url: "https://avatars.githubusercontent.com/u/2?v=4",
+            identifier: 1,
+            username: "test",
+            profile_image: "https://avatars.githubusercontent.com/u/1?v=4",
           },
         ],
       });
@@ -91,18 +86,7 @@ describe("GithubProvider", () => {
       expect(result).toEqual({
         status: 401,
         message: "Unauthorized",
-        data: [
-          {
-            id: 1,
-            login: "test",
-            avatar_url: "https://avatars.githubusercontent.com/u/1?v=4",
-          },
-          {
-            id: 2,
-            login: "test2",
-            avatar_url: "https://avatars.githubusercontent.com/u/2?v=4",
-          },
-        ],
+        data: [],
       });
     });
 
@@ -117,18 +101,7 @@ describe("GithubProvider", () => {
       expect(result).toEqual({
         status: 409,
         message: "Rate Limit Exceeded",
-        data: [
-          {
-            id: 1,
-            login: "test",
-            avatar_url: "https://avatars.githubusercontent.com/u/1?v=4",
-          },
-          {
-            id: 2,
-            login: "test2",
-            avatar_url: "https://avatars.githubusercontent.com/u/2?v=4",
-          },
-        ],
+        data: [],
       });
     });
 
@@ -143,18 +116,7 @@ describe("GithubProvider", () => {
       expect(result).toEqual({
         status: 500,
         message: "Internal Server Error",
-        data: [
-          {
-            id: 1,
-            login: "test",
-            avatar_url: "https://avatars.githubusercontent.com/u/1?v=4",
-          },
-          {
-            id: 2,
-            login: "test2",
-            avatar_url: "https://avatars.githubusercontent.com/u/2?v=4",
-          },
-        ],
+        data: [],
       });
     });
   });
