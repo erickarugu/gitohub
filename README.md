@@ -1,12 +1,15 @@
 ## Gitohub
 Gitohub is a simple API that allows you to get a list of GitHub users.
 
+![image](https://github.com/user-attachments/assets/ca513f3d-26b0-4f93-8f83-79c333253a99)
+
+
 ## Installation
 ```bash
 pnpm install
 ```
 
-## Set .env
+## Environment Variables
 ```bash
 cp .env.example .env
 ```
@@ -26,15 +29,18 @@ pnpm run test
 ```bash
 pnpm run coverage
 ```
+![image](https://github.com/user-attachments/assets/be374bea-85fd-4f26-893d-c9079e04e2f4)
 
-Using Docker Compose to run the app and redis server
-Make sure you have docker and docker-compose installed on your machine.
+
 ## Docker Compose
+You can also use Docker Compose to run the app and redis server
+Make sure you have docker and docker-compose installed on your machine and then run the following command
 ```bash
 docker-compose up -d
 ```
 
 ## Packages used 
+This project uses the following packages:
 - [express](https://expressjs.com/) - web framework
 - [express-rate-limit](https://github.com/nfriedly/express-rate-limit) - rate limiting
 - [ioredis](https://github.com/luin/ioredis) - redis client
