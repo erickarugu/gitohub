@@ -1,0 +1,30 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    command: pnpm run dev
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - 3005:3005
+    volumes:
+      - .:/app
+      - /app/node_modules
+    depends_on:
+      - redis
+    networks:
+      - api-network
+
+  redis:
+    image: redis:7.4.1-alpine
+    ports:
+      - 6379:6379
+    networks:
+      - api-network
+
+networks:
+  api-network:
+    driver: bridge

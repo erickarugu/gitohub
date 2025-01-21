@@ -1,14 +1,20 @@
 ## Gitohub
-Gitohub is a simple API that allows you to get GitHub users.
+Gitohub is a simple API that allows you to get a list of GitHub users.
 
 ## Installation
 ```bash
 pnpm install
 ```
 
+## Set .env
+```bash
+cp .env.example .env
+```
+Replace the values in the .env file with your own values.
+
 ## Running the app
 ```bash
-pnpm run start
+pnpm run dev
 ```
 
 ## Running the tests
@@ -19,6 +25,13 @@ pnpm run test
 ## Coverage
 ```bash
 pnpm run coverage
+```
+
+Using Docker Compose to run the app and redis server
+Make sure you have docker and docker-compose installed on your machine.
+## Docker Compose
+```bash
+docker-compose up -d
 ```
 
 ## Packages used 
@@ -37,8 +50,3 @@ pnpm run coverage
 - [@types/express](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/express) - express types
 - [@types/swagger-ui-express](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/swagger-ui-express) - swagger-ui-express types
 
-
-## Docker Compose
-```bash
-docker-compose up -d
-```

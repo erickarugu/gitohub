@@ -15,7 +15,7 @@ const PORT = env.PORT;
 
 const limiter = rateLimit({
   windowMs: 60 * 1000, // 1 minute
-  max: 10, // Limit each IP to 100 requests per windowMs
+  max: 100, // Limit each IP to 100 requests per windowMs
 });
 
 app.use(limiter);
@@ -23,18 +23,18 @@ app.use(limiter);
 app.use(
   cors({
     origin: "*",
-    methods: ["GET", "POST", "PATCH", "DELETE"],
+    methods: ["GET"],
   })
 );
 
 app.use(async (req, res, next) => {
-  console.log(`Request URL: ${req.originalUrl} Method: ${req.method}`);
+  console.log(`Request URL: ${req.originalUrl}; Method: ${req.method}`);
   next();
 });
 
-app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-app.get("/users", async (req, res) => {
+app.get("/api/users", async (req, res) => {
   const users = await ioRedisService.getOrSetCache<User[]>(
     "users",
     async () => {
@@ -50,5 +50,8 @@ app.get("/users", async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server is running on port http://localhost:${PORT}`);
+  console.log(`Server is running on http://localhost:${PORT}/api`);
+  console.log(
+    `API Documentation is running on http://localhost:${PORT}/api/docs`
+  );
 });

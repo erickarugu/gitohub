@@ -9,7 +9,7 @@
   "consumes": ["application/json"],
   "produces": ["application/json"],
   "paths": {
-    "/users": {
+    "/api/users": {
       "get": {
         "summary": "GET users",
         "operationId": "ListUsers",

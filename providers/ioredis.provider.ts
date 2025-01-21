@@ -10,19 +10,24 @@ export class IORedisProvider {
 
   constructor(options: IORedisProviderOptions) {
     // Create a Redis client instance
-    this.redis = new Redis(
-      options.port, // Redis server port
-      options.host, // Redis server host
-      {}
-    );
+    try {
+      this.redis = new Redis(
+        options.port, // Redis server port
+        options.host, // Redis server host
+        {}
+      );
+    } catch (error) {
+      this.redis = new Redis(6379, "localhost");
+      console.error("Error connecting to Redis:", { error });
+    }
   }
 
-  // Cache an API response
+  // Cache an API response default ttl is 5 minutes
   cacheApiResponse = async (key: string, data: any, ttl = 300) => {
     // Convert the data to a JSON string
     const json = JSON.stringify(data);
 
-    // Store the JSON strin in Redis with an expiration of 5 minutes (300 seconds) by default
+    // Store the JSON string in Redis
     await this.redis.set(key, json, "EX", ttl);
   };
 

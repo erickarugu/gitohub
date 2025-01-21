@@ -1,6 +1,9 @@
 {
   "name": "gitohub",
   "version": "1.0.0",
+  "author": "Eric Karugu",
+  "license": "ISC",
+  "description": "Gitohub API",
   "main": "index.js",
   "scripts": {
     "start": "nodemon --watch dist --ext js dist/index.js",
@@ -14,9 +17,6 @@
     "test:coverage": "jest --coverage"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
