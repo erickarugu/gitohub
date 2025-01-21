@@ -1,4 +1,3 @@
-// .eslintrc.js
 module.exports = {
   plugins: ["perfectionist"],
   rules: {

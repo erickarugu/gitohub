@@ -35,7 +35,5 @@ COPY --from=builder /app/dist .
 # Copy the node_modules directory from the builder stage
 COPY --from=builder /app/node_modules .
 
-
-
 # Start the application
 CMD ["pnpm", "start"]

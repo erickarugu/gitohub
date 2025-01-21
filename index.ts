@@ -1,16 +1,14 @@
 import express, { Express } from "express";
-import { User } from "./providers";
 import cors from "cors";
 import swaggerUi from "swagger-ui-express";
+import rateLimit from "express-rate-limit";
+
 import swaggerDocument from "./swagger/swagger.json";
 import env from "./env";
-import { GitHubService } from "./services/github.service";
-import { IORedisService } from "./services/ioredis.service";
-import rateLimit from "express-rate-limit";
+import { GitHubService } from "./services";
 
 const app: Express = express();
 const gitHubService = new GitHubService();
-const ioRedisService = new IORedisService();
 const PORT = env.PORT;
 
 const limiter = rateLimit({

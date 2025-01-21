@@ -1,9 +1,6 @@
 import { retryWithExponentialBackoff } from "./retry";
 
 describe("retryWithExponentialBackoff", () => {
-  // Set timeout to 1 minute (60000ms)
-  jest.setTimeout(60000);
-
   beforeEach(() => {
     jest.useFakeTimers();
     jest.spyOn(console, "log").mockImplementation();
